@@ -1,0 +1,30 @@
+body{
+background:#111;
+color;
+font-family, sans-serif;
+text-align;
+}
+
+h1{
+color;
+}
+
+nav a{
+color;
+text-decoration;
+margin:15px;
+}
+
+button{
+background;
+color;
+border;
+padding:15px 30px;
+border-radius:10px;
+font-size:18px;
+cursor;
+}
+
+ARQUIVO: script.js
+
+console.log("Empire Imports carregada com sucesso!");
