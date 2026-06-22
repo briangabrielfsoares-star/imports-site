@@ -6,11 +6,11 @@ body{
 }
 
 header{
+    background:black;
+    padding:20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px;
-    background:black;
 }
 
 h1{
@@ -25,23 +25,34 @@ nav a{
 
 .hero{
     text-align:center;
-    margin-top:150px;
+    padding:50px;
 }
 
-.hero h2{
-    font-size:60px;
+.produtos{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+    padding:40px;
 }
 
-.hero p{
-    font-size:20px;
-    color:gray;
+.produto{
+    background:#1c1c1c;
+    width:250px;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.produto:hover{
+    transform:scale(1.05);
 }
 
 button{
     background:gold;
-    color:black;
     border:none;
-    padding:15px 35px;
+    padding:15px 30px;
     border-radius:10px;
     font-size:18px;
     cursor:pointer;
