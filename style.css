@@ -1,30 +1,48 @@
 body{
-background:#111;
-color;
-font-family, sans-serif;
-text-align;
+    background:#111;
+    color:white;
+    font-family:Arial,sans-serif;
+    margin:0;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px;
+    background:black;
 }
 
 h1{
-color;
+    color:gold;
 }
 
 nav a{
-color;
-text-decoration;
-margin:15px;
+    color:white;
+    text-decoration:none;
+    margin:15px;
+}
+
+.hero{
+    text-align:center;
+    margin-top:150px;
+}
+
+.hero h2{
+    font-size:60px;
+}
+
+.hero p{
+    font-size:20px;
+    color:gray;
 }
 
 button{
-background;
-color;
-border;
-padding:15px 30px;
-border-radius:10px;
-font-size:18px;
-cursor;
+    background:gold;
+    color:black;
+    border:none;
+    padding:15px 35px;
+    border-radius:10px;
+    font-size:18px;
+    cursor:pointer;
 }
-
-ARQUIVO: script.js
-
-console.log("Empire Imports carregada com sucesso!");
