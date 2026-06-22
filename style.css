@@ -106,3 +106,25 @@ input{
 .pesquisa button{
     padding:15px 20px;
 }
+.whatsapp{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    width:70px;
+    height:70px;
+    background:#25D366;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:35px;
+    text-decoration:none;
+    box-shadow:0 0 20px rgba(37,211,102,0.7);
+    z-index:1000;
+}
+
+.whatsapp:hover{
+    transform:scale(1.1);
+    transition:0.3s;
+}
