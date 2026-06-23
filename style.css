@@ -147,3 +147,24 @@ label{
     opacity: 1;
     transform: translateX(0);
 }
+.notificacao {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #111;
+    color: white;
+    padding: 15px 25px;
+    border-left: 5px solid #00ff66;
+    border-radius: 10px;
+    font-size: 16px;
+    box-shadow: 0 0 20px rgba(0,255,100,0.4);
+    opacity: 0;
+    transform: translateX(100px);
+    transition: 0.4s;
+    z-index: 9999;
+}
+
+.notificacao.mostrar {
+    opacity: 1;
+    transform: translateX(0);
+}
