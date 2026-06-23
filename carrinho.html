@@ -17,6 +17,9 @@
 <a href="tenis.html">Tênis</a>
 <a href="perfumes.html">Perfumes</a>
 <a href="acessorios.html">Acessórios</a>
+<a href="favoritos.html">❤️ Favoritos</a>
+<a href="carrinho.html">🛒 Carrinho</a>
+<a href="contato.html">Contato</a>
 </nav>
 </header>
 
@@ -27,27 +30,21 @@
 
 <section class="produtos">
 
-<div class="produto">
-<h3>Nike Air Force 1</h3>
-<p>Quantidade: 1</p>
-<h2>R$239,90</h2>
-<button>Remover</button>
-</div>
+<div id="lista-carrinho">
 
-<div class="produto">
-<h3>Dior Sauvage</h3>
-<p>Quantidade: 1</p>
-<h2>R$249,90</h2>
-<button>Remover</button>
 </div>
 
 </section>
 
 <section class="hero">
-<h2>Total: R$489,80</h2>
+<h2 id="total">Total: R$0,00</h2>
 
-<button>Finalizar Compra</button>
+<button onclick="window.location.href='checkout.html'">
+Finalizar Compra
+</button>
 </section>
+
+<script src="carrinho.js"></script>
 
 </body>
 </html>
