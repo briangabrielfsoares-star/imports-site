@@ -1,27 +1,50 @@
-let botoes = document.querySelectorAll(".adicionar-carrinho");
-
-let contadorCarrinho =
-document.getElementById("contador-carrinho");
-
-let carrinho =
-JSON.parse(localStorage.getItem("carrinho")) || [];
-
-atualizarContador();
+let botoes =
+document.querySelectorAll(".adicionar-carrinho");
 
 botoes.forEach(botao=>{
 
     botao.addEventListener("click",()=>{
 
-        let nome = botao.dataset.nome;
+        let card =
+        botao.parentElement;
+
+        let nome =
+        botao.dataset.nome;
 
         let preco =
         Number(botao.dataset.preco);
+
+        let imagem =
+        botao.dataset.imagem;
+
+        let tamanho =
+        card.querySelector(".tamanho").value;
+
+        let quantidade =
+        Number(
+
+        card.querySelector(".quantidade").value
+
+        );
+
+        let carrinho =
+        JSON.parse(
+
+        localStorage.getItem("carrinho")
+
+        ) || [];
 
         carrinho.push({
 
             nome:nome,
 
-            preco:preco
+            preco:preco,
+
+            imagem:imagem,
+
+            tamanho:tamanho,
+
+            quantidade:quantidade
 
         });
 
@@ -33,29 +56,19 @@ botoes.forEach(botao=>{
 
         );
 
-        atualizarContador();
-
         mostrarNotificacao();
 
     });
 
 });
 
-function atualizarContador(){
-
-    if(contadorCarrinho){
-
-        contadorCarrinho.innerHTML =
-        `(${carrinho.length})`;
-
-    }
-
-}
 
 function mostrarNotificacao(){
 
     let notificacao =
     document.getElementById("notificacao");
+
+    if(!notificacao) return;
 
     notificacao.classList.remove("mostrar");
 
@@ -77,22 +90,26 @@ let coracoes =
 document.querySelectorAll(".coracao");
 
 let favoritos =
-JSON.parse(localStorage.getItem("favoritos")) || [];
+JSON.parse(
 
-coracoes.forEach((coracao,index)=>{
+localStorage.getItem("favoritos")
+
+) || [];
+
+coracoes.forEach(coracao=>{
 
     coracao.addEventListener("click",()=>{
 
-        let produto =
+        let card =
         coracao.parentElement;
 
         let nome =
-        produto.querySelector("h3").innerText;
+        card.querySelector("h3").innerText;
 
         let preco =
         Number(
 
-        produto.querySelector("h2")
+        card.querySelector("h2")
 
         .innerText
 
@@ -102,31 +119,20 @@ coracoes.forEach((coracao,index)=>{
 
         );
 
-        if(coracao.innerHTML=="🤍"){
+        let imagem =
+        card.querySelector("img")?.src || "";
 
-            coracao.innerHTML="❤️";
+        coracao.classList.toggle("ativo");
 
-            favoritos.push({
+        favoritos.push({
 
-                nome:nome,
+            nome:nome,
 
-                preco:preco
+            preco:preco,
 
-            });
+            imagem:imagem
 
-        }
-
-        else{
-
-            coracao.innerHTML="🤍";
-
-            favoritos = favoritos.filter(
-
-                p=>p.nome != nome
-
-            );
-
-        }
+        });
 
         localStorage.setItem(
 
