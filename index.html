@@ -1,85 +1,95 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Empire Imports</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empire Imports</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
   <h1>EMPIRE IMPORTS</h1>
-  <div id="cart">🛒 <span id="cartCount">0</span></div>
+
+  <div id="cart">
+    🛒 <span id="cartCount">0</span>
+  </div>
 </header>
 
-<secti<section class="pesquisa">
+<section class="hero">
+  <h2>Importados Premium 🔥</h2>
+  <p>Roupas, tênis, perfumes e eletrônicos.</p>
+</section>
+
+<section class="pesquisa">
   <input
     type="text"
     id="searchInput"
     placeholder="Pesquisar produtos..."
     onkeyup="searchProducts()"
   >
-</section>on class="hero">
-  <h2>Importados premium 🔥</h2>
-  <p>Roupas, tênis e perfumes com estilo</p>
+</section>
+
+<section class="categorias">
+  <button>🔥 Todos</button>
+  <button>👕 Roupas</button>
+  <button>👟 Tênis</button>
+  <button>🧴 Perfumes</button>
+  <button>📱 iPhones</button>
 </section>
 
 <section class="produtos">
 
   <div class="card">
-  <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600" alt="Nike Tech">
-
-  <h3>Nike Tech</h3>
-  <p>Moletom premium</p>
-  <span>R$ 149</span>
-
-  <button onclick="addToCart('Nike Tech')">
-    Adicionar
-  </button>
-</div>
+    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600">
+    <h3>Nike Tech</h3>
+    <p>Moletom premium</p>
+    <span>R$149</span>
+    <button onclick="addToCart('Nike Tech')">
+      Adicionar
+    </button>
+  </div>
 
   <div class="card">
-  <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600" alt="Adidas">
-
-  <h3>Adidas Set</h3>
-  <p>Conjunto esportivo</p>
-  <span>R$ 129</span>
-
-  <button onclick="addToCart('Adidas Set')">
-    Adicionar
-  </button>
-</div>
+    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600">
+    <h3>Adidas Set</h3>
+    <p>Conjunto esportivo</p>
+    <span>R$129</span>
+    <button onclick="addToCart('Adidas Set')">
+      Adicionar
+    </button>
+  </div>
 
   <div class="card">
-  <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=600" alt="Perfume">
-
-  <h3>Perfume Importado</h3>
-  <p>Fragrância premium</p>
-  <span>R$ 99</span>
-
-  <button onclick="addToCart('Perfume Importado')">
-    Adicionar
-  </button>
-</div>
+    <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=600">
+    <h3>Perfume Importado</h3>
+    <p>Fragrância premium</p>
+    <span>R$99</span>
+    <button onclick="addToCart('Perfume Importado')">
+      Adicionar
+    </button>
+  </div>
 
 </section>
 
 <section class="carrinho">
   <h2>Seu Carrinho</h2>
+
   <ul id="cartList"></ul>
 
-  <button onclick="finalizarCompra()">Finalizar no WhatsApp</button>
+  <button onclick="finalizarCompra()">
+    Finalizar no WhatsApp
+  </button>
 </section>
 
-<script src="script.js"></script>
-  <a
-  href="https://wa.me/5531972354299"
-  class="whatsapp"
-  target="_blank"
->
-  🙋‍♂️
+<a
+href="https://wa.me/5531972354299"
+class="whatsapp"
+target="_blank">
+💬
 </a>
+
+<script src="script.js"></script>
+
 </body>
-</html> 
+</html>
