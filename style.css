@@ -55,25 +55,7 @@ nav a:hover{
     padding:40px;
 }
 
-.produto{
-    background:rgba(30,30,30,.9);
-    padding:30px;
-    border-radius:25px;
-    text-align:center;
-    min-height:350px;
 
-    box-shadow:0 0 20px rgba(255,215,0,.15);
-
-    transition:.4s;
-}
-
-.produto:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:0 0 40px rgba(255,215,0,.5);
-
-}
 
 .produto img{
 
@@ -102,7 +84,7 @@ button{
 
     padding:15px 30px;
 
-    border-radius:15px;
+    border-radius:50px;
 
     font-size:16px;
 
@@ -110,15 +92,21 @@ button{
 
     cursor:pointer;
 
-    transition:.3s;
+    transition:.4s;
 
 }
 
 button:hover{
 
-    transform:scale(1.05);
+    transform:scale(1.08);
 
-    background:#fff;
+    background:white;
+
+    box-shadow:
+
+    0 0 15px white,
+
+    0 0 40px rgba(255,255,255,.5);
 
 }
 
@@ -248,5 +236,75 @@ footer{
     to{
         width:0%;
     }
+
+}
+.produto{
+
+    background:rgba(30,30,30,.8);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    padding:30px;
+
+    border-radius:30px;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    position:relative;
+
+    transition:.5s;
+
+    box-shadow:0 0 20px rgba(255,215,0,.1);
+
+}
+
+.produto:hover{
+
+    transform:translateY(-15px);
+
+    box-shadow:
+    0 0 15px rgba(255,215,0,.5),
+    0 0 40px rgba(255,215,0,.3);
+
+}
+
+.produto::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:200px;
+
+    height:200px;
+
+    background:rgba(255,215,0,.1);
+
+    border-radius:50%;
+
+    top:-100px;
+
+    right:-100px;
+
+}
+body{
+
+    background:
+
+    linear-gradient(
+
+    135deg,
+
+    #090909,
+
+    #151515,
+
+    #090909
+
+    );
 
 }
