@@ -1,16 +1,33 @@
-let carrinho = [];
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-function adicionarAoCarrinho(nome, preco) {
+let lista = document.getElementById("lista-carrinho");
+let total = 0;
 
-    carrinho.push({
-        nome: nome,
-        preco: preco
-    });
+lista.innerHTML = "";
 
-    localStorage.setItem(
-        "carrinho",
-        JSON.stringify(carrinho)
-    );
+carrinho.forEach((produto, index) => {
 
-    alert(nome + " foi adicionado ao carrinho!");
+    total += produto.preco;
+
+    lista.innerHTML += `
+    <div class="produto">
+        <h3>${produto.nome}</h3>
+        <h2>R$${produto.preco.toFixed(2)}</h2>
+        <button onclick="removerProduto(${index})">
+            Remover
+        </button>
+    </div>
+    `;
+});
+
+document.getElementById("total").innerHTML =
+`Total: R$${total.toFixed(2)}`;
+
+function removerProduto(index) {
+
+    carrinho.splice(index, 1);
+
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+    location.reload();
 }
