@@ -4,289 +4,53 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Empire Imports</title>
-
 <link rel="stylesheet" href="style.css">
-
 </head>
+
 <body>
 
 <header>
-
-<h1>EMPIRE IMPORTS</h1>
-
-<div class="pesquisa">
-
-<input type="text" placeholder="Pesquisar produtos...">
-
-<button>🔍</button>
-
-</div>
-
-<nav>
-
-<a href="index.html">Home</a>
-
-<a href="roupas.html">Roupas</a>
-
-<a href="tenis.html">Tênis</a>
-
-<a href="perfumes.html">Perfumes</a>
-
-<a href="acessorios.html">Acessórios</a>
-
-<a href="favoritos.html">❤️ Favoritos</a>
-
-<a href="carrinho.html">
-
-🛒 Carrinho
-
-<span id="contador-carrinho"></span>
-
-</a>
-
-<a href="login.html">👤 Login</a>
-
-</nav>
-
+  <h1>EMPIRE IMPORTS</h1>
+  <div id="cart">🛒 <span id="cartCount">0</span></div>
 </header>
 
 <section class="hero">
-
-<h2>ESTILO DE VERDADE.</h2>
-
-<h2>QUALIDADE PREMIUM.</h2>
-
-<p>
-
-As melhores roupas, tênis, perfumes e acessórios importados.
-
-</p>
-
-<button>
-
-Comprar Agora
-
-</button>
-
-</section>
-
-<section class="hero">
-
-<h2>
-
-OFERTAS DA SEMANA
-
-</h2>
-
-<p>
-
-Use o cupom EMPIRE10 e ganhe 10% OFF
-
-</p>
-
-</section>
-
-<section class="destaque">
-
-<h2>
-
-PRODUTOS EM DESTAQUE
-
-</h2>
-
+  <h2>Importados premium 🔥</h2>
+  <p>Roupas, tênis e perfumes com estilo</p>
 </section>
 
 <section class="produtos">
 
-<div class="produto">
-
-<div class="coracao">
-
-🤍
-
-</div>
-
-<h3>
-
-Nike Air Force 1
-
-</h3>
-
-<p>
-
-⭐⭐⭐⭐⭐ (4.9)
-
-</p>
-
-<h2>
-
-R$239,90
-
-</h2>
-
-<button
-class="adicionar-carrinho"
-data-nome="Nike Air Force 1"
-data-preco="239.90">
-
-Adicionar ao Carrinho
-
-</button>
-
-</div>
-
-<div class="produto">
-
-<div class="coracao">
-
-🤍
-
-</div>
-
-<h3>
-
-Adidas Campus 00s
-
-</h3>
-
-<p>
-
-⭐⭐⭐⭐⭐ (4.8)
-
-</p>
-
-<h2>
-
-R$229,90
-
-</h2>
-
-<button
-class="adicionar-carrinho"
-data-nome="Adidas Campus 00s"
-data-preco="229.90">
-
-Adicionar ao Carrinho
-
-</button>
-
-</div>
-
-<div class="produto">
-
-<div class="coracao">
-
-🤍
-
-</div>
-
-<h3>
-
-Nike Tech Fleece
-
-</h3>
-
-<p>
-
-⭐⭐⭐⭐⭐ (4.9)
-
-</p>
-
-<h2>
-
-R$189,90
-
-</h2>
-
-<button
-class="adicionar-carrinho"
-data-nome="Nike Tech Fleece"
-data-preco="189.90">
-
-Adicionar ao Carrinho
-
-</button>
-
-</div>
-
-<div class="produto">
-
-<div class="coracao">
-
-🤍
-
-</div>
-
-<h3>
-
-Dior Sauvage
-
-</h3>
-
-<p>
-
-⭐⭐⭐⭐⭐ (4.9)
-
-</p>
-
-<h2>
-
-R$249,90
-
-</h2>
-
-<button
-class="adicionar-carrinho"
-data-nome="Dior Sauvage"
-data-preco="249.90">
-
-Adicionar ao Carrinho
-
-</button>
-
-</div>
+  <div class="card">
+    <h3>Nike Tech</h3>
+    <p>Moletom premium</p>
+    <span>R$ 149</span>
+    <button onclick="addToCart('Nike Tech')">Adicionar</button>
+  </div>
+
+  <div class="card">
+    <h3>Adidas Set</h3>
+    <p>Conjunto esportivo</p>
+    <span>R$ 129</span>
+    <button onclick="addToCart('Adidas Set')">Adicionar</button>
+  </div>
+
+  <div class="card">
+    <h3>Perfume Importado</h3>
+    <p>Fragrância premium</p>
+    <span>R$ 99</span>
+    <button onclick="addToCart('Perfume Importado')">Adicionar</button>
+  </div>
 
 </section>
 
-<footer>
+<section class="carrinho">
+  <h2>Seu Carrinho</h2>
+  <ul id="cartList"></ul>
 
-<p>
-
-© 2026 Empire Imports
-
-</p>
-
-</footer>
-
-<div id="notificacao">
-
-<div class="icone-notificacao">
-
-🛒
-
-</div>
-
-<div class="conteudo-notificacao">
-
-<h3>
-
-Produto adicionado
-
-</h3>
-
-<p>
-
-Seu item foi para o carrinho.
-
-</p>
-
-</div>
-
-<div class="barra-progresso"></div>
-
-</div>
+  <button onclick="finalizarCompra()">Finalizar no WhatsApp</button>
+</section>
 
 <script src="script.js"></script>
-
 </body>
-</html>
+</html> 
