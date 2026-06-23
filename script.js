@@ -145,3 +145,20 @@ coracoes.forEach(coracao=>{
     });
 
 });
+function atualizarContador() {
+
+    let carrinho =
+    JSON.parse(localStorage.getItem("carrinho")) || [];
+
+    let contador =
+    document.getElementById("contador-carrinho");
+
+    if (contador) {
+
+        contador.innerHTML = carrinho.length;
+
+    }
+
+}
+
+atualizarContador();
