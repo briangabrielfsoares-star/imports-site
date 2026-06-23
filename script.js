@@ -18,11 +18,18 @@ botoes.forEach(botao => {
 
         let notificacao = document.getElementById("notificacao");
 
-notificacao.classList.add("mostrar");
+        notificacao.classList.remove("mostrar");
 
-setTimeout(() => {
-    notificacao.classList.remove("mostrar");
-}, 2500);
+        void notificacao.offsetWidth;
+
+        notificacao.classList.add("mostrar");
+
+        setTimeout(() => {
+
+            notificacao.classList.remove("mostrar");
+
+        },2500);
+
     });
 
 });
