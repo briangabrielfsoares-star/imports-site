@@ -4,10 +4,18 @@ updateCart();
 
 function addToCart(product) {
   cart.push(product);
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-
+  saveCart();
   updateCart();
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  saveCart();
+  updateCart();
+}
+
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 function updateCart() {
@@ -18,11 +26,16 @@ function updateCart() {
 
   list.innerHTML = "";
 
-  cart.forEach(item => {
+  cart.forEach((item, index) => {
 
     let li = document.createElement("li");
 
-    li.textContent = item;
+    li.innerHTML = `
+      ${item}
+      <button onclick="removeFromCart(${index})">
+        ❌
+      </button>
+    `;
 
     list.appendChild(li);
 
@@ -33,19 +46,14 @@ function updateCart() {
 function finalizarCompra() {
 
   if (cart.length === 0) {
-
     alert("Carrinho vazio!");
-
     return;
-
   }
 
   let mensagem = "Olá, quero comprar:%0A";
 
   cart.forEach(item => {
-
     mensagem += "- " + item + "%0A";
-
   });
 
   window.open(
