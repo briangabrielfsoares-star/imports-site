@@ -95,3 +95,20 @@ footer{
 .produto{
     min-height:350px;
 }
+.produto img{
+    width:180px;
+    height:180px;
+    object-fit:contain;
+}
+
+.produto h2{
+    color:#FFD700;
+}
+
+.produto{
+    box-shadow:0 0 15px rgba(255,215,0,0.2);
+}
+
+.produto:hover{
+    box-shadow:0 0 30px rgba(255,215,0,0.5);
+}
