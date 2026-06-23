@@ -81,3 +81,17 @@ footer{
     text-align:center;
     padding:20px;
 }
+.produto img{
+    width:180px;
+    height:180px;
+    object-fit:contain;
+    margin-bottom:20px;
+}
+
+.produto h2{
+    color:#ffd700;
+}
+
+.produto{
+    min-height:350px;
+}
