@@ -125,3 +125,25 @@ input[type="number"]{
 label{
     font-weight:bold;
 }
+#notificacao{
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background: #111;
+    color: white;
+    padding: 18px 25px;
+    border-left: 5px solid #ffd700;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255,215,0,0.5);
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateX(150px);
+    transition: 0.4s;
+    z-index: 9999;
+}
+
+#notificacao.mostrar{
+    opacity: 1;
+    transform: translateX(0);
+}
