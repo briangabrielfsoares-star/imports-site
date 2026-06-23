@@ -4,6 +4,8 @@ JSON.parse(localStorage.getItem("favoritos")) || [];
 let lista =
 document.getElementById("lista-favoritos");
 
+lista.innerHTML = "";
+
 if(favoritos.length == 0){
 
     lista.innerHTML = `
@@ -36,6 +38,8 @@ else{
 
         <div class="produto">
 
+        <img src="${produto.imagem}">
+
         <h3>
 
         ${produto.nome}
@@ -48,10 +52,7 @@ else{
 
         </h2>
 
-        <br>
-
-        <button
-        onclick="removerFavorito(${index})">
+        <button onclick="removerFavorito(${index})">
 
         Remover
 
