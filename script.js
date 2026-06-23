@@ -1,67 +1,45 @@
-let botoes =
-document.querySelectorAll(".adicionar-carrinho");
+let botoes = document.querySelectorAll(".adicionar-carrinho");
 
-botoes.forEach(botao=>{
+botoes.forEach(botao => {
 
-    botao.addEventListener("click",()=>{
+    botao.addEventListener("click", () => {
 
-        let card =
-        botao.parentElement;
+        let card = botao.parentElement;
 
-        let nome =
-        botao.dataset.nome;
+        let nome = botao.dataset.nome;
+        let preco = Number(botao.dataset.preco);
+        let imagem = botao.dataset.imagem;
 
-        let preco =
-        Number(botao.dataset.preco);
-
-        let imagem =
-        botao.dataset.imagem;
-
-        let tamanho =
-        card.querySelector(".tamanho").value;
-
-        let quantidade =
-        Number(
-
-        card.querySelector(".quantidade").value
-
+        let tamanho = card.querySelector(".tamanho")?.value || "";
+        let quantidade = Number(
+            card.querySelector(".quantidade")?.value || 1
         );
 
         let carrinho =
-        JSON.parse(
-
-        localStorage.getItem("carrinho")
-
-        ) || [];
+        JSON.parse(localStorage.getItem("carrinho")) || [];
 
         carrinho.push({
 
-            nome:nome,
-
-            preco:preco,
-
-            imagem:imagem,
-
-            tamanho:tamanho,
-
-            quantidade:quantidade
+            nome: nome,
+            preco: preco,
+            imagem: imagem,
+            tamanho: tamanho,
+            quantidade: quantidade
 
         });
 
         localStorage.setItem(
-
-        "carrinho",
-
-        JSON.stringify(carrinho)
-
+            "carrinho",
+            JSON.stringify(carrinho)
         );
 
         mostrarNotificacao();
 
+        atualizarContador();
+
     });
 
 });
-
 
 function mostrarNotificacao(){
 
@@ -76,7 +54,7 @@ function mostrarNotificacao(){
 
     notificacao.classList.add("mostrar");
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
         notificacao.classList.remove("mostrar");
 
@@ -84,21 +62,17 @@ function mostrarNotificacao(){
 
 }
 
-
-
 let coracoes =
 document.querySelectorAll(".coracao");
 
 let favoritos =
 JSON.parse(
-
 localStorage.getItem("favoritos")
-
 ) || [];
 
-coracoes.forEach(coracao=>{
+coracoes.forEach(coracao => {
 
-    coracao.addEventListener("click",()=>{
+    coracao.addEventListener("click", () => {
 
         let card =
         coracao.parentElement;
@@ -108,54 +82,66 @@ coracoes.forEach(coracao=>{
 
         let preco =
         Number(
-
-        card.querySelector("h2")
-
-        .innerText
-
-        .replace("R$","")
-
-        .replace(",", ".")
-
+            card.querySelector("h2")
+            .innerText
+            .replace("R$","")
+            .replace(",",".")
         );
 
         let imagem =
         card.querySelector("img")?.src || "";
 
-        coracao.classList.toggle("ativo");
+        let existe =
+        favoritos.find(
+            produto => produto.nome === nome
+        );
 
-        favoritos.push({
+        if(existe){
 
-            nome:nome,
+            favoritos =
+            favoritos.filter(
+                produto => produto.nome !== nome
+            );
 
-            preco:preco,
+            coracao.classList.remove("ativo");
 
-            imagem:imagem
+        }else{
 
-        });
+            favoritos.push({
+
+                nome: nome,
+                preco: preco,
+                imagem: imagem
+
+            });
+
+            coracao.classList.add("ativo");
+
+        }
 
         localStorage.setItem(
-
-        "favoritos",
-
-        JSON.stringify(favoritos)
-
+            "favoritos",
+            JSON.stringify(favoritos)
         );
 
     });
 
 });
-function atualizarContador() {
+
+function atualizarContador(){
 
     let carrinho =
-    JSON.parse(localStorage.getItem("carrinho")) || [];
+    JSON.parse(
+    localStorage.getItem("carrinho")
+    ) || [];
 
     let contador =
     document.getElementById("contador-carrinho");
 
-    if (contador) {
+    if(contador){
 
-        contador.innerHTML = carrinho.length;
+        contador.innerHTML =
+        carrinho.length;
 
     }
 
