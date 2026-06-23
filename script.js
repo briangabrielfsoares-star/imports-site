@@ -16,7 +16,13 @@ botoes.forEach(botao => {
 
         localStorage.setItem("carrinho", JSON.stringify(carrinho));
 
-        alert("Produto adicionado ao carrinho!");
+        let notificacao = document.getElementById("notificacao");
+
+notificacao.classList.add("mostrar");
+
+setTimeout(() => {
+    notificacao.classList.remove("mostrar");
+}, 2500);
     });
 
 });
