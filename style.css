@@ -112,3 +112,16 @@ footer{
 .produto:hover{
     box-shadow:0 0 30px rgba(255,215,0,0.5);
 }
+select,
+input[type="number"]{
+    width:120px;
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    text-align:center;
+}
+
+label{
+    font-weight:bold;
+}
