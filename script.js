@@ -1,36 +1,53 @@
-let botoes = document.querySelectorAll(".adicionar-carrinho");
+// ===== CARRINHO =====
 
-botoes.forEach(botao => {
+let botoes =
+document.querySelectorAll(".adicionar-carrinho");
 
-    botao.addEventListener("click", () => {
+botoes.forEach(botao=>{
 
-        let card = botao.parentElement;
+    botao.addEventListener("click",()=>{
 
-        let nome = botao.dataset.nome;
-        let preco = Number(botao.dataset.preco);
-        let imagem = botao.dataset.imagem;
+        let card =
+        botao.parentElement;
 
-        let tamanho = card.querySelector(".tamanho")?.value || "";
-        let quantidade = Number(
-            card.querySelector(".quantidade")?.value || 1
+        let nome =
+        botao.dataset.nome;
+
+        let preco =
+        Number(botao.dataset.preco);
+
+        let imagem =
+        botao.dataset.imagem;
+
+        let tamanho =
+        card.querySelector(".tamanho")?.value || "";
+
+        let quantidade =
+        Number(
+        card.querySelector(".quantidade")?.value || 1
         );
 
         let carrinho =
-        JSON.parse(localStorage.getItem("carrinho")) || [];
+        JSON.parse(
+        localStorage.getItem("carrinho")
+        ) || [];
 
         carrinho.push({
 
-            nome: nome,
-            preco: preco,
-            imagem: imagem,
-            tamanho: tamanho,
-            quantidade: quantidade
+            nome:nome,
+            preco:preco,
+            imagem:imagem,
+            tamanho:tamanho,
+            quantidade:quantidade
 
         });
 
         localStorage.setItem(
-            "carrinho",
-            JSON.stringify(carrinho)
+
+        "carrinho",
+
+        JSON.stringify(carrinho)
+
         );
 
         mostrarNotificacao();
@@ -40,6 +57,9 @@ botoes.forEach(botao => {
     });
 
 });
+
+
+// ===== NOTIFICAÇÃO =====
 
 function mostrarNotificacao(){
 
@@ -54,13 +74,16 @@ function mostrarNotificacao(){
 
     notificacao.classList.add("mostrar");
 
-    setTimeout(() => {
+    setTimeout(()=>{
 
         notificacao.classList.remove("mostrar");
 
     },2500);
 
 }
+
+
+// ===== FAVORITOS =====
 
 let coracoes =
 document.querySelectorAll(".coracao");
@@ -70,22 +93,35 @@ JSON.parse(
 localStorage.getItem("favoritos")
 ) || [];
 
-coracoes.forEach(coracao => {
+coracoes.forEach(coracao=>{
 
-    coracao.addEventListener("click", () => {
+    let card =
+    coracao.parentElement;
 
-        let card =
-        coracao.parentElement;
+    let nome =
+    card.querySelector("h3").innerText;
 
-        let nome =
-        card.querySelector("h3").innerText;
+    let existe =
+    favoritos.find(
+    produto => produto.nome === nome
+    );
+
+    if(existe){
+
+        coracao.innerHTML = "❤️";
+
+    }
+
+    coracao.addEventListener("click",()=>{
 
         let preco =
         Number(
-            card.querySelector("h2")
-            .innerText
-            .replace("R$","")
-            .replace(",",".")
+
+        card.querySelector("h2")
+        .innerText
+        .replace("R$","")
+        .replace(",", ".")
+
         );
 
         let imagem =
@@ -93,40 +129,48 @@ coracoes.forEach(coracao => {
 
         let existe =
         favoritos.find(
-            produto => produto.nome === nome
+        produto => produto.nome === nome
         );
 
         if(existe){
 
             favoritos =
             favoritos.filter(
-                produto => produto.nome !== nome
+            produto => produto.nome !== nome
             );
 
-            coracao.classList.remove("ativo");
+            coracao.innerHTML = "🤍";
 
-        }else{
+        }
+
+        else{
 
             favoritos.push({
 
-                nome: nome,
-                preco: preco,
-                imagem: imagem
+                nome:nome,
+                preco:preco,
+                imagem:imagem
 
             });
 
-            coracao.classList.add("ativo");
+            coracao.innerHTML = "❤️";
 
         }
 
         localStorage.setItem(
-            "favoritos",
-            JSON.stringify(favoritos)
+
+        "favoritos",
+
+        JSON.stringify(favoritos)
+
         );
 
     });
 
 });
+
+
+// ===== CONTADOR DO CARRINHO =====
 
 function atualizarContador(){
 
@@ -136,7 +180,9 @@ function atualizarContador(){
     ) || [];
 
     let contador =
-    document.getElementById("contador-carrinho");
+    document.getElementById(
+    "contador-carrinho"
+    );
 
     if(contador){
 
