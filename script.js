@@ -1,32 +1,35 @@
 let botoes = document.querySelectorAll(".adicionar-carrinho");
 
-let contadorCarrinho = document.getElementById("contador-carrinho");
+let contadorCarrinho =
+document.getElementById("contador-carrinho");
 
-let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+let carrinho =
+JSON.parse(localStorage.getItem("carrinho")) || [];
 
 atualizarContador();
 
-botoes.forEach(botao => {
+botoes.forEach(botao=>{
 
-    botao.addEventListener("click", () => {
+    botao.addEventListener("click",()=>{
 
         let nome = botao.dataset.nome;
 
-        let preco = Number(botao.dataset.preco);
+        let preco =
+        Number(botao.dataset.preco);
 
         carrinho.push({
 
-            nome: nome,
+            nome:nome,
 
-            preco: preco
+            preco:preco
 
         });
 
         localStorage.setItem(
 
-            "carrinho",
+        "carrinho",
 
-            JSON.stringify(carrinho)
+        JSON.stringify(carrinho)
 
         );
 
@@ -69,16 +72,47 @@ function mostrarNotificacao(){
 }
 
 
+
 let coracoes =
 document.querySelectorAll(".coracao");
 
-coracoes.forEach(coracao=>{
+let favoritos =
+JSON.parse(localStorage.getItem("favoritos")) || [];
+
+coracoes.forEach((coracao,index)=>{
 
     coracao.addEventListener("click",()=>{
+
+        let produto =
+        coracao.parentElement;
+
+        let nome =
+        produto.querySelector("h3").innerText;
+
+        let preco =
+        Number(
+
+        produto.querySelector("h2")
+
+        .innerText
+
+        .replace("R$","")
+
+        .replace(",", ".")
+
+        );
 
         if(coracao.innerHTML=="🤍"){
 
             coracao.innerHTML="❤️";
+
+            favoritos.push({
+
+                nome:nome,
+
+                preco:preco
+
+            });
 
         }
 
@@ -86,7 +120,21 @@ coracoes.forEach(coracao=>{
 
             coracao.innerHTML="🤍";
 
+            favoritos = favoritos.filter(
+
+                p=>p.nome != nome
+
+            );
+
         }
+
+        localStorage.setItem(
+
+        "favoritos",
+
+        JSON.stringify(favoritos)
+
+        );
 
     });
 
