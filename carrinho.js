@@ -6,6 +6,8 @@ document.getElementById("lista-carrinho");
 
 let total = 0;
 
+lista.innerHTML = "";
+
 if(carrinho.length == 0){
 
     lista.innerHTML = `
@@ -32,15 +34,19 @@ if(carrinho.length == 0){
 
 else{
 
-    lista.innerHTML = "";
-
     carrinho.forEach((produto,index)=>{
 
-        total += produto.preco;
+        let subtotal =
+        produto.preco * produto.quantidade;
+
+        total += subtotal;
 
         lista.innerHTML += `
 
         <div class="produto">
+
+            <img
+            src="${produto.imagem}">
 
             <h3>
 
@@ -48,11 +54,31 @@ else{
 
             </h3>
 
+            <p>
+
+            Tamanho: ${produto.tamanho}
+
+            </p>
+
+            <p>
+
+            Quantidade: ${produto.quantidade}
+
+            </p>
+
             <h2>
 
             R$${produto.preco.toFixed(2)}
 
             </h2>
+
+            <p>
+
+            Subtotal:
+
+            R$${subtotal.toFixed(2)}
+
+            </p>
 
             <br>
 
