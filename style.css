@@ -274,3 +274,30 @@ footer{
     }
 
 }
+.coracao{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.coracao:hover{
+
+    transform:scale(1.2);
+
+}
+
+.coracao.ativo{
+
+    color:red;
+
+}
